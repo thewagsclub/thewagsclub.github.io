@@ -78,7 +78,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;margin-top:28px;line-
 <script>
 var API = 'https://script.google.com/macros/s/AKfycbykNIWpMqV_FAZQVzaza-dms3gwEjHLID0nfVPu9EEbVAU-dJWpznQhaxNJj4yDeniI/exec';
 var SITE = 'https://thewagsclub.github.io/';
-// HOWL-O-WEEN VOTING PAGE · GITHUB BUILD 2026-10-30 1300
+// HOWL-O-WEEN VOTING PAGE · GITHUB BUILD 2026-10-30 1503
 var cfg = {status:'open', today:'', url:SITE, opens:'', closes:''}, E = [], shared = false;
 function esc(s) { return String(s || '').replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
 function byN(n) { for (var i = 0; i < E.length; i++) if (E[i].n === n) return E[i]; return null; }
@@ -127,7 +127,7 @@ function enlarge(n) {
   var x = byN(n); if (!x || !x.img) return;
   var h = handles(x);
   document.getElementById('modal').outerHTML = '<div class="big" id="modal" onclick="event.stopPropagation()">' +
-    '<img alt="' + esc(x.dog) + ' in costume" src="' + x.img.replace(/=w800$/, '=w1600') + '">' +
+    '<img alt="' + esc(x.dog) + ' in costume" src="' + x.img + '">' +
     '<div class="info"><div class="dog">' + esc(x.dog) + '</div>' + (x.costume ? '<div class="cos">as ' + esc(x.costume) + '</div>' : '') +
     (h ? '<div class="handle">' + esc(h) + '</div>' : '') + '<div style="height:10px"></div>' + btn(x, true) +
     '<button class="close" onclick="closeM()">Back to the pups</button></div></div>';
@@ -168,7 +168,7 @@ document.getElementById('q').addEventListener('input', render);
 document.getElementById('grid').innerHTML = '<div class="empty" style="grid-column:1/-1">Loading the pups…</div>';
 function load(tries) {
   fetch(API + '?api=data').then(function (r) { return r.json(); }).then(function (d) {
-    cfg = d.cfg; cfg.url = SITE; E = shuffle(d.entries); render();
+    cfg = d.cfg; cfg.url = SITE; E = shuffle(d.entries); E.forEach(function (x) { x.img = 'p-' + slug(x.dog) + '.jpg?v=1503'; }); render();
   }).catch(function () { if (tries < 3) setTimeout(function () { load(tries + 1); }, 1500); else document.getElementById('grid').innerHTML = '<div class="empty" style="grid-column:1/-1">The pups didn’t load. Please refresh the page.</div>'; });
 }
 load(0);
