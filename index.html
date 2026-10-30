@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Howl-O-Ween Voting · The Wags Club</title>
+<meta property="og:title" content="Vote in The Wags Club Howl-O-Ween Costume Contest!">
+<meta property="og:description" content="Vote for your favorite pup, as often as you like, until Thu Nov 5 at 5 PM PT.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Creepster&family=Poppins:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#17142B;--card:#221d3d;--cream:#F7EBD8;--orange:#EE7A2B;--red:#84302D;--muted:#b9b0d6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--cream);font-family:Poppins,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:18px 14px 60px}
+header{text-align:center;padding:6px 0 10px}
+.club{font-size:12px;letter-spacing:4px;font-weight:700;color:var(--orange)}
+h1{font-family:Creepster,cursive;font-weight:400;font-size:46px;line-height:1;margin:6px 0 0;color:var(--orange);letter-spacing:1px}
+h2{font-family:Anton,sans-serif;font-weight:400;font-size:26px;margin:2px 0 8px;letter-spacing:1px}
+.how{font-size:15px;line-height:1.45;margin:0 auto;max-width:520px}
+.banner{margin:14px auto 4px;max-width:560px;background:var(--red);border-radius:14px;padding:12px 14px;text-align:center;font-weight:700;font-size:15px}
+.banner.ok{background:#2c5a2f}
+.search{width:100%;margin:14px 0 6px;padding:13px 16px;border-radius:999px;border:2px solid #3a3360;background:#0f0d1f;color:var(--cream);font:500 16px Poppins,sans-serif}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+.card{background:var(--card);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;border:2px solid transparent;scroll-margin-top:12px}
+.card.mine{border-color:var(--orange)}
+.ph{position:relative;aspect-ratio:4/5;flex:none;width:100%;background:#0f0d1f;cursor:zoom-in}
+.zoomhint{position:absolute;right:8px;bottom:8px;background:rgba(15,13,31,.7);color:var(--cream);font-size:11px;font-weight:700;border-radius:999px;padding:3px 9px}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.num{position:absolute;top:8px;left:8px;background:var(--orange);color:#17142B;font-family:Anton,sans-serif;font-size:20px;border-radius:999px;min-width:38px;height:38px;display:flex;align-items:center;justify-content:center;padding:0 8px}
+.info{padding:10px 10px 12px;display:flex;flex-direction:column;gap:2px;flex:1}
+.dog{font-family:Anton,sans-serif;font-size:22px;letter-spacing:.5px;line-height:1.1}
+.cos{font-size:13px;color:var(--muted);line-height:1.3}
+.handle{font-size:12px;color:var(--orange);font-weight:700;overflow-wrap:anywhere}
+.btn{margin-top:auto;border:0;border-radius:12px;background:var(--orange);color:#17142B;font:800 16px Poppins,sans-serif;padding:12px 8px;cursor:pointer;width:100%}
+.info .btn{margin-top:0}
+.sp{flex:1;min-height:10px}
+.btn[disabled]{background:#3a3360;color:var(--muted);cursor:default}
+.btn.voted{background:#2c5a2f;color:var(--cream)}
+.big{max-width:520px;width:100%;background:var(--bg);border:3px solid var(--orange);border-radius:20px;overflow:hidden;max-height:94vh;display:flex;flex-direction:column}
+.big img{width:100%;max-height:68vh;object-fit:contain;background:#0f0d1f;display:block}
+.big .info{padding:12px 16px 16px;text-align:center}
+.big .dog{font-size:30px}
+.feature{background:var(--card);border-radius:20px;overflow:hidden;margin-top:16px;border:3px solid var(--orange)}
+.feature .ph{aspect-ratio:4/5}
+.feature .dog{font-size:34px}
+.feature .info{padding:14px 16px 18px}
+.feature .btn{font-size:19px;padding:15px}
+.seeall{display:block;text-align:center;margin:14px 0 4px;color:var(--orange);font-weight:700;text-decoration:none}
+.empty{text-align:center;padding:40px 10px;color:var(--muted)}
+.overlay{position:fixed;inset:0;background:rgba(10,8,20,.82);display:none;align-items:center;justify-content:center;padding:18px;z-index:9}
+.overlay.on{display:flex}
+.modal{background:var(--bg);border:3px solid var(--orange);border-radius:20px;max-width:420px;width:100%;padding:22px 18px;text-align:center}
+.modal h3{font-family:Anton,sans-serif;font-weight:400;font-size:30px;margin:0 0 6px;color:var(--orange)}
+.modal p{margin:6px 0 12px;line-height:1.45}
+.share{display:block;text-decoration:none;text-align:center;margin-top:10px}
+.linkbox{font-size:12px;color:var(--muted);word-break:break-all;margin-top:10px;user-select:all}
+.close{background:none;border:0;color:var(--muted);font:600 14px Poppins,sans-serif;margin-top:12px;cursor:pointer}
+footer{text-align:center;color:var(--muted);font-size:12px;margin-top:28px;line-height:1.5}
+@media (min-width:640px){.grid{grid-template-columns:1fr 1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="club">THE WAGS CLUB · LOS ANGELES</div>
+    <h1>HOWL-O-WEEN</h1>
+    <h2>COSTUME CONTEST</h2>
+    <p class="how" id="how"></p>
+  </header>
+  <div id="banner"></div>
+  <div id="feature"></div>
+  <input class="search" id="q" type="search" placeholder="Search by pup's name" autocomplete="off">
+  <div class="grid" id="grid"></div>
+  <footer>3 winners · 3 prizes · YOU pick the winners!<br>Winners announced Thursday, November 5.</footer>
+</div>
+<div class="overlay" id="ov"><div class="modal" id="modal"></div></div>
+<script>
+var API = 'https://script.google.com/macros/s/AKfycbykNIWpMqV_FAZQVzaza-dms3gwEjHLID0nfVPu9EEbVAU-dJWpznQhaxNJj4yDeniI/exec';
+var SITE = 'https://thewagsclub.github.io/';
+// HOWL-O-WEEN VOTING PAGE · GITHUB BUILD 2026-10-30 1300
+var cfg = {status:'open', today:'', url:SITE, opens:'', closes:''}, E = [], shared = false;
+function esc(s) { return String(s || '').replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+function byN(n) { for (var i = 0; i < E.length; i++) if (E[i].n === n) return E[i]; return null; }
+function slug(s) { return String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''); }
+function linkFor(x) { return SITE + '?dog=' + slug(x.dog); }
+var WANT = (new URLSearchParams(location.search).get('dog') || location.hash.slice(1) || '').toLowerCase();
+function shuffle(a) { for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+function handles(x) {
+  var h = [];
+  if (x.ig) h.push('IG @' + x.ig);
+  if (x.tt) h.push('TikTok @' + x.tt);
+  if (x.fb) h.push('FB ' + x.fb);
+  return h.join(' · ');
+}
+function btn(x, full) {
+  if (cfg.status === 'soon') return '<button class="btn" disabled>Voting opens soon</button>';
+  if (cfg.status === 'closed') return '<button class="btn" disabled>Voting closed</button>';
+  var t = full ? 'Vote for ' + esc(x.dog) : 'Vote';
+  return '<button class="btn" data-n="' + x.n + '" data-t="' + t + '" onclick="cast(' + x.n + ',this)">' + t + '</button>';
+}
+function cardHtml(x, full) {
+  var h = handles(x);
+  return '<div class="card" id="d' + x.n + '">' +
+    '<div class="ph" onclick="enlarge(' + x.n + ')">' + (x.img ? '<img loading="lazy" alt="' + esc(x.dog) + ' in costume" src="' + x.img + '"><span class="zoomhint">Tap to enlarge</span>' : '') + '</div>' +
+    '<div class="info"><div class="dog">' + esc(x.dog) + '</div>' +
+    (x.costume ? '<div class="cos">as ' + esc(x.costume) + '</div>' : '') +
+    (h ? '<div class="handle">' + esc(h) + '</div>' : '') + '<div class="sp"></div>' + btn(x, full) + '</div></div>';
+}
+function render() {
+  var how = 'Tap <b>Vote</b> under your favorite pup. <b>Vote as often as you like</b>';
+  how += cfg.closes ? ', every day until ' + esc(cfg.closes) + '.' : '.';
+  document.getElementById('how').innerHTML = how;
+  var b = '';
+  if (cfg.status === 'soon') b = '<div class="banner">Voting opens ' + esc(cfg.opens) + '. Get ready!</div>';
+  else if (cfg.status === 'closed') b = '<div class="banner">Voting is closed. Thank you for voting! Winners are announced Thursday, November 5.</div>';
+  document.getElementById('banner').innerHTML = b;
+  var q = document.getElementById('q').value.trim().toLowerCase();
+  var F = null;
+  if (WANT) for (var i = 0; i < E.length; i++) if (slug(E[i].dog) === WANT) F = E[i];
+  document.getElementById('feature').innerHTML = F ? '<div class="feature">' + cardHtml(F, true).replace(/^<div class="card"[^>]*>/, '').replace(/<\/div>$/, '') + '</div><a class="seeall" href="#grid">See all the pups ↓</a>' : '';
+  var list = E.filter(function (x) { return x !== F && (!q || x.dog.toLowerCase().indexOf(q) >= 0 || (x.costume || '').toLowerCase().indexOf(q) >= 0); });
+  document.getElementById('grid').innerHTML = E.length ? (list.length ? list.map(cardHtml).join('') : '<div class="empty" style="grid-column:1/-1">No pup matches that search.</div>')
+    : '<div class="empty" style="grid-column:1/-1">The costume photos are being taken right now. Check back soon!</div>';
+}
+function enlarge(n) {
+  var x = byN(n); if (!x || !x.img) return;
+  var h = handles(x);
+  document.getElementById('modal').outerHTML = '<div class="big" id="modal" onclick="event.stopPropagation()">' +
+    '<img alt="' + esc(x.dog) + ' in costume" src="' + x.img.replace(/=w800$/, '=w1600') + '">' +
+    '<div class="info"><div class="dog">' + esc(x.dog) + '</div>' + (x.costume ? '<div class="cos">as ' + esc(x.costume) + '</div>' : '') +
+    (h ? '<div class="handle">' + esc(h) + '</div>' : '') + '<div style="height:10px"></div>' + btn(x, true) +
+    '<button class="close" onclick="closeM()">Back to the pups</button></div></div>';
+  document.getElementById('ov').classList.add('on');
+}
+function flash(n) {
+  var bs = document.querySelectorAll('button[data-n="' + n + '"]');
+  for (var i = 0; i < bs.length; i++) { bs[i].disabled = true; bs[i].className = 'btn voted'; bs[i].textContent = '✓ Vote counted!'; }
+  setTimeout(function () {
+    var bs = document.querySelectorAll('button[data-n="' + n + '"]'), x = byN(n);
+    for (var i = 0; i < bs.length; i++) { bs[i].disabled = false; bs[i].className = 'btn'; bs[i].innerHTML = bs[i].getAttribute('data-t'); }
+  }, 2500);
+}
+function cast(n, el) {
+  if (el) { el.disabled = true; el.textContent = 'Voting…'; }
+  fetch(API + '?api=vote&n=' + n).then(function (r) { return r.json(); }).then(function (r) {
+    if (r.ok) { flash(n); if (!shared) { shared = true; thanks(byN(n)); } }
+    else { render(); alertBox(r.err); }
+  }).catch(function () { render(); alertBox('That didn’t go through. Please check your connection and tap Vote again.'); });
+}
+function msgFor(x) { return 'Vote for ' + x.dog + ' in The Wags Club Howl-O-Ween costume contest! Vote as often as you like: ' + linkFor(x); }
+function shareIt(n) {
+  var msg = msgFor(byN(n));
+  if (navigator.share) { navigator.share({ text: msg }).catch(function () {}); return; }
+  if (navigator.clipboard) navigator.clipboard.writeText(msg).then(function () { alertBox('Copied! Paste it into a text or post.'); }, function () {});
+}
+function thanks(x) {
+  modal('<h3>VOTE COUNTED!</h3><p>Thanks for voting for <b>' + esc(x.dog) + '</b>. Vote as often as you like, and send the link to your friends!</p>' +
+    '<button class="btn share" onclick="shareIt(' + x.n + ')">Share ' + esc(x.dog) + ' with friends</button>' +
+    '<div class="linkbox">' + esc(msgFor(x)) + '</div>' +
+    '<button class="close" onclick="closeM()">Back to the pups</button>');
+}
+function alertBox(t) { modal('<p>' + esc(t) + '</p><button class="btn" onclick="closeM()">OK</button>'); }
+function modal(h) { var m = document.getElementById('modal'); if (m.className !== 'modal') { m.outerHTML = '<div class="modal" id="modal"></div>'; m = document.getElementById('modal'); } m.innerHTML = h; document.getElementById('ov').classList.add('on'); }
+function closeM() { document.getElementById('ov').classList.remove('on'); }
+document.getElementById('ov').addEventListener('click', function (e) { if (e.target.id === 'ov') closeM(); });
+document.getElementById('q').addEventListener('input', render);
+document.getElementById('grid').innerHTML = '<div class="empty" style="grid-column:1/-1">Loading the pups…</div>';
+function load(tries) {
+  fetch(API + '?api=data').then(function (r) { return r.json(); }).then(function (d) {
+    cfg = d.cfg; cfg.url = SITE; E = shuffle(d.entries); render();
+  }).catch(function () { if (tries < 3) setTimeout(function () { load(tries + 1); }, 1500); else document.getElementById('grid').innerHTML = '<div class="empty" style="grid-column:1/-1">The pups didn’t load. Please refresh the page.</div>'; });
+}
+load(0);
+</script>
+</body>
+</html>
